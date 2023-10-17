@@ -1,0 +1,4 @@
+sh train_finetune_residualunet_l2_MF_0.sh
+sh train_finetune_residualunet_l2_MF_3.sh
+sh train_finetune_residualunet_l2_MF_5.sh
+sh train_finetune_residualunet_l2_MF_7.sh

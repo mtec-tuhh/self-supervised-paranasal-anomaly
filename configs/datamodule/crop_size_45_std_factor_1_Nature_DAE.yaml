@@ -1,0 +1,22 @@
+_target_: datamodules.data_mod.ParanasalAEDataModule
+
+cfg:
+
+  name: ParanasalAEDataModule
+  
+  dimension:  64
+  batch_size: 16
+  num_workers: 4
+  crop_size: 45
+  noise_std: 0.5
+  samples_per_patient: 1 #Number of maxillary sinus volumes to consider per patient
+  lr : 0.0001
+  label_group:  [[0],[1,2,3,4]] #0 normal #1 mucosal thickening #2 polyps #3 cysts #4 fully occupied 
+  augmentations: True
+  trainset: /home/debayan/Desktop/MRI_HCHS/JAMA-labelled-1000-corrected/splits/crop_size_45_std_factor_1/fold_${current_fold}/train_autoencoders.csv
+  valset: /home/debayan/Desktop/MRI_HCHS/JAMA-labelled-1000-corrected/splits/crop_size_45_std_factor_1/fold_${current_fold}/val.csv
+  testset: /home/debayan/Desktop/MRI_HCHS/JAMA-labelled-1000-corrected/splits/crop_size_45_std_factor_1/fold_${current_fold}/test.csv
+  one_patient_id: NULL #['sub-9acb1fd7']
+  modelpath: None
+
+  

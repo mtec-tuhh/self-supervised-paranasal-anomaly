@@ -1,0 +1,21 @@
+_target_: datamodules.data_mod.ParanasalContrastiveDataModule
+
+cfg:
+  name: ParanasalContrastiveDataModule
+  
+  dimension:  64
+  batch_size: 128
+  num_workers: 4
+
+  
+  lr : 0.0001
+  
+  augmentations: False
+  trainset: ${data_dir}/${current_fold}/train_sup.csv
+  valset: ${data_dir}/${current_fold}/val_sup.csv
+  testset: ${data_dir}/${current_fold}/test.csv
+  valset_thresh: ${data_dir}/${current_fold}/val_sup.csv
+
+  modelpath: None
+
+  

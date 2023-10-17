@@ -1,0 +1,20 @@
+_target_: datamodules.data_mod.ParanasalClassificationDataModule
+
+cfg:
+  name: ParanasalClassificationDataModule
+  
+  dimension:  64
+  batch_size: 16
+  num_workers: 4
+
+  samples_per_patient: 20
+  lr : 0.0001
+  
+  augmentations: False
+  trainset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA_labelled/splits/crop_size_40_std_factor_1/fold_${current_fold}/train.csv
+  valset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA_labelled/splits/crop_size_40_std_factor_1/fold_${current_fold}/val.csv
+  testset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA_labelled/splits/crop_size_40_std_factor_1/fold_${current_fold}/test.csv
+
+  modelpath: None
+
+  

@@ -1,0 +1,46 @@
+_target_: models.multicontext_vit.ViTClassifier
+
+cfg:
+
+  name: ViTClassifier
+
+  ## Data 
+  #ViT Configuration
+  batch_size: 32
+  image_size: 64
+  image_patch_size_1: 0
+  image_patch_size_2: 16
+  image_patch_size_3: 0
+  image_patch_size_4: 0
+
+  n_classes: 2
+  dim: 256
+  depth: 8 
+  heads: 16
+  mlp_dim: 512
+  dropout: 0.1
+  emb_dropout: 0.1
+
+  convnet_model: True
+
+  class_weights: [0.32,1]
+
+  enable_maxpool : False
+  conv_dimension : 64
+ 
+  lossStrategy: 'mean'
+  lr: ${datamodule.cfg.lr}
+  
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/
+
+  
+
+
+
+
+

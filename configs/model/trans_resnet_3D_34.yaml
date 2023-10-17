@@ -1,0 +1,31 @@
+_target_: models.trains_resnet.ResNetClassifer
+
+cfg:
+  name: ResNetClassifer
+
+  ## Data 
+ 
+  batch_size: ${datamodule.cfg.batch_size}
+  spatialDims: 3D
+  model_depth: 34
+
+  class_weights: [0.32,1]
+ 
+  lossStrategy: 'mean'
+  lr: ${datamodule.cfg.lr}
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/
+  
+  features_to_include: [1,1,1]
+
+  t_depth: 2
+  t_heads: 4
+  embedding_dim: 512
+  mlp_dim: 2048
+  n_output_channels: 64
+  enable_transformer: True
+  

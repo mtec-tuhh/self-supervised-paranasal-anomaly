@@ -1,0 +1,20 @@
+_target_: datamodules.data_mod.ParanasalClassificationDataModule
+
+cfg:
+  name: ParanasalClassificationDataModule
+  
+  dimension:  64
+  batch_size: 16
+  num_workers: 4
+  crop_size: 50
+  samples_per_patient: 1 #Number of maxillary sinus volumes to consider per patient
+  lr : 0.0001
+  label_group:  [[0],[1,2,3,4]] #0 normal #1 mucosal thickening #2 polyps #3 cysts #4 fully occupied 
+  augmentations: True
+  trainset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA-labelled-1000/splits/crop_size_50_std_factor_1/fold_${current_fold}/train.csv
+  valset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA-labelled-1000/splits/crop_size_50_std_factor_1/fold_${current_fold}/val.csv
+  testset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA-labelled-1000/splits/crop_size_50_std_factor_1/fold_${current_fold}/test.csv
+  one_patient_id: NULL #['sub-9acb1fd7']
+  modelpath: None
+
+  

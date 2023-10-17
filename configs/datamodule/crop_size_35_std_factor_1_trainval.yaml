@@ -1,0 +1,20 @@
+_target_: datamodules.data_mod.ParanasalClassificationDataModule
+
+cfg:
+  name: ParanasalClassificationDataModule
+  
+  dimension:  64
+  batch_size: 16
+  num_workers: 4
+
+  samples_per_patient: 20 #Number of maxillary sinus volumes to consider per patient
+  lr : 0.0001
+  
+  augmentations: True
+  trainset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA_labelled_2/splits/crop_size_35_std_factor_1/fold_${current_fold}/trainval.csv
+  valset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA_labelled_2/splits/crop_size_35_std_factor_1/fold_${current_fold}/test.csv
+  testset: /media/debayan/c7b64c90-ca4e-4192-8ed9-8fea1d005196/MRI_HCHS/dataset/JAMA_labelled_2/splits/crop_size_35_std_factor_1/fold_${current_fold}/test.csv
+
+  modelpath: None
+
+  

@@ -1,0 +1,36 @@
+_target_: models.maskedAE_3D.Autoencoder_3D
+
+cfg:
+
+  name: Autoencoder_3D
+  ## Data 
+  batch_size: ${datamodule.cfg.batch_size}
+  img_size: 65
+  patch_size: 5 
+  in_chans: 1
+  embed_dim: 192
+  depth: 8
+  num_heads: 6
+  decoder_embed_dim: 192
+  decoder_depth: 4
+  decoder_num_heads: 6
+  mlp_ratio: 4
+  norm_pix_loss: False
+  class_weights: [0.32,1]
+
+ 
+  lossStrategy: 'mean'
+  lr: 0.0003
+  warmup_epochs: 10
+  weight_decay: 0.05
+  steps_per_epoch: 665
+  max_epochs:  ${trainer.max_epochs}
+
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/
+
+  

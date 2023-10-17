@@ -1,0 +1,33 @@
+_target_: models.ResNet_3D_simclr.ResNetClassifer
+
+cfg:
+  name: ResNetClassifer
+  model_name: 3D ResNet18
+  ## Data 
+  
+  batch_size: ${datamodule.cfg.batch_size}
+  spatialDims: 3D
+  model_depth: 18
+
+  #class_weights: [0.3,1]
+  class_weights: [0.83,1.24]
+
+  enable_gradcam: False
+  attention_folder: ${plot_save_dir}/attention_maps/${hydra:job.name}/${current_fold}/
+  method: ggcam
+
+  classify: False
+  temperature: 0.07
+ 
+  lossStrategy: 'mean'
+  lr: ${datamodule.cfg.lr}
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/
+
+
+
+  

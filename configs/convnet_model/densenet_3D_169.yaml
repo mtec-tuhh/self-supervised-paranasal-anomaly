@@ -1,0 +1,34 @@
+_target_: models.densenet.DenseNetClassifier
+
+cfg:
+  name: DenseNetClassifier
+
+  ## Data 
+  batch_size: ${datamodule.cfg.batch_size}
+  spatialDims: 3D
+  model_depth: 169
+
+  class_weights: [0.32,1]
+ 
+  lossStrategy: 'mean'
+  lr: ${datamodule.cfg.lr}
+  
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/
+
+  
+
+
+
+
+
+
+  
+
+
+
+

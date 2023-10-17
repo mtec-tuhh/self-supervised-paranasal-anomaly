@@ -1,0 +1,38 @@
+_target_: models.vit.ViTClassifier
+
+cfg:
+  name: ViTClassifier
+
+  ## Data 
+  #ViT Configuration
+  batch_size: 16
+  image_size: 64
+  image_patch_size: 4
+  frame_patch_size: 4
+  n_classes: 2
+  dim: 512
+  depth: 2 
+  heads: 4
+  mlp_dim: 2048
+  dropout: 0.1
+  emb_dropout: 0.1
+
+
+  class_weights: [0.32,1]
+ 
+  lossStrategy: 'mean'
+  lr: ${datamodule.cfg.lr}
+  
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/ 
+
+  
+
+
+
+
+

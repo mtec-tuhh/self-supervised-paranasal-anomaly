@@ -1,0 +1,6 @@
+CUDA_VISIBLE_DEVICES=1 HYDRA_FULL_ERROR=1 python run.py data_dir=datasets_HNOKongrezz_small model=resnet_3D.yaml +seed=100 trainer.max_epochs=100 +num_folds=5 +enable_logger=False hydra.job.chdir=False hydra.job.name=CE_128_BS_16_DS_small datamodule.cfg.batch_size=16 name=CE_small_BS_16 +onlyEval=False
+
+CUDA_VISIBLE_DEVICES=1 HYDRA_FULL_ERROR=1 python run.py data_dir=datasets_HNOKongrezz_medium model=resnet_3D.yaml +seed=100 trainer.max_epochs=100 +num_folds=5 +enable_logger=False hydra.job.chdir=False hydra.job.name=CE_128_BS_16_DS_medium datamodule.cfg.batch_size=16 name=CE_medium_BS_16 +onlyEval=False
+
+CUDA_VISIBLE_DEVICES=1 HYDRA_FULL_ERROR=1 python run.py data_dir=datasets_HNOKongrezz_large model=resnet_3D.yaml +seed=100 trainer.max_epochs=100 +num_folds=5 +enable_logger=False hydra.job.chdir=False hydra.job.name=CE_128_BS_16_DS_large datamodule.cfg.batch_size=16 name=CE_large_BS_16 +onlyEval=False
+HYDRA_FULL_ERROR=1 python run.py +show_result=False  +show_disease_performance=True +csv_file_names=[CE_128_BS_16_DS_large,CE_128_BS_16_DS_medium,CE_128_BS_16_DS_small] name=CE_BS_16

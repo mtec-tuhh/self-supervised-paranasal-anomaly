@@ -1,0 +1,45 @@
+_target_: models.vae_3D.VariationalAutoencoder_3D
+
+cfg:
+  name: VariationalAutoencoder_3D
+
+  ## Data 
+  dimension: ${datamodule.cfg.dimension} 
+  batch_size: ${datamodule.cfg.batch_size}
+  spatialDims: 3D
+  
+  ## Architecture
+  kernel_size: 5
+  latent_size: 512
+  filters: [1,16, 32,64]
+  
+  #Used to configure the flattened feature map dimension of encoder and the 
+  #input to the fully connected layer at the botteneck
+  
+  filter_multiplier: 32 
+  ## Training
+  beta: 1
+  lossStrategy: 'mean'
+  lr: ${datamodule.cfg.lr}
+
+  # LR Scheduling
+  schedule_LR: False 
+  patience_LR: 10
+
+  # Early Stopping
+  early_stopping: False 
+  patience_stopping: 50
+
+  median_filtering: True
+  modelpath: ${datamodule.cfg.modelpath}
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/
+
+
+
+
+  save_sample_after_n: 10

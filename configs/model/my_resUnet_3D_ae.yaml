@@ -1,0 +1,38 @@
+_target_: models.ResNet_3D_AE.ResUNetClassifer
+
+cfg:
+  name: ResUNetClassifer
+  model_name: 3D ResNet18
+  ## Data 
+  
+  batch_size: ${datamodule.cfg.batch_size}
+  spatialDims: 3D
+  model_depth: 18
+
+  #class_weights: [0.3,1]
+  class_weights: [0.83,1.24]
+
+  enable_gradcam: False
+  attention_folder: ${plot_save_dir}/attention_maps/${hydra:job.name}/${current_fold}/
+  method: ggcam
+
+  classify: False
+  loss: l1
+
+  lr: ${datamodule.cfg.lr}
+  warmup_epochs: 10
+  weight_decay: 0.0001
+  steps_per_epoch: 23
+  max_epochs:  ${trainer.max_epochs}
+ 
+  lossStrategy: 'mean'
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/
+
+
+
+  

@@ -1,0 +1,38 @@
+_target_: models.simplevit.SimpleViTClassifer
+
+cfg:
+  name: SimpleViTClassifer
+
+  ## Data 
+  #ViT Configuration
+  batch_size: ${datamodule.cfg.batch_size}
+  image_size: 64
+  image_patch_size: 4
+  frame_patch_size: 4
+  n_classes: 2
+  dim: 64
+  depth: 6 
+  heads: 8
+  mlp_dim: 128
+
+
+
+
+  class_weights: [0.32,1]
+ 
+  lossStrategy: 'mean'
+  lr: ${datamodule.cfg.lr}
+  
+
+  save_sample_path: ${model_output_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path: ${plot_save_dir}/${hydra:job.name}/${current_fold}/
+
+  plot_save_path_cv: ${plot_save_dir}/${hydra:job.name}/
+
+  
+
+
+
+
+

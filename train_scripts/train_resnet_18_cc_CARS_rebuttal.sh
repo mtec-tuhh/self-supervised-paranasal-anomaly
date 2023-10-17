@@ -1,0 +1,7 @@
+sh train_resnet_18_cc_CARS_x.sh
+sh train_resnet_18_cc_CARS_xy.sh
+sh train_resnet_18_cc_CARS_xyz.sh
+sh train_resnet_18_cc_CARS_xz.sh
+sh train_resnet_18_cc_CARS_y.sh
+sh train_resnet_18_cc_CARS_yz.sh
+sh train_resnet_18_cc_CARS_z.sh

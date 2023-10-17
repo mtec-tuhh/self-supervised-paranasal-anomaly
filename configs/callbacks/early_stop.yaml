@@ -1,0 +1,8 @@
+early_stop:
+    _target_: pytorch_lightning.callbacks.early_stopping.EarlyStopping
+    monitor: 'val/loss'  #"val/mean_auc"
+    mode: "min"
+    verbose: True
+    patience: 5
+    min_delta: 0.000
+  

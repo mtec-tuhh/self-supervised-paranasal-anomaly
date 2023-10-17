@@ -1,0 +1,2 @@
+sh train_MIDL_contranet_m_101_cc_40.sh
+sh train_MIDL_contranet_m_101_cc_45.sh
