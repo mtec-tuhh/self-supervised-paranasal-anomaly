@@ -24,6 +24,9 @@ The motivation behind this research is to alleviate the burden on clinicians and
 
 ## Methods
 
+![Data Processing Pipeline](DataProcessing.png)
+
+
 ### Data Collection and Preprocessing
 
 We collected a dataset of radiological images containing both normal and anomalous maxillary sinuses. The data was preprocessed to remove noise and ensure uniformity for the subsequent training steps.
