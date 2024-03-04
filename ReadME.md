@@ -24,7 +24,7 @@ The motivation behind this research is to alleviate the burden on clinicians and
 
 ## Methods
 
-![Data Processing Pipeline](DataProcessing.png)
+![Data Processing Pipeline](method_2 (1).png)
 
 
 ### Data Collection and Preprocessing
